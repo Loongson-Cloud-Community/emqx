@@ -1,10 +1,10 @@
 ## This is a fast-build Dockerfile only for testing
-FROM ubuntu:20.04
+FROM cr.loongnix.cn/library/debian:buster
 ARG PROFILE=emqx
 
 RUN apt-get update; \
-    apt-get install -y --no-install-recommends ca-certificates procps; \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y --no-install-recommends ca-certificates procps libatomic1 libnuma1; \
+#rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /opt/emqx
 RUN date > /opt/emqx/BUILD_TIME
